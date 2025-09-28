@@ -21,7 +21,7 @@ struct ContentView: View {
                         .font(.title2)
                         .foregroundColor(.gray)
                     
-                    Text("等待数据同步...")
+                    Text("Waiting for data sync...")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .multilineTextAlignment(.center)
@@ -33,7 +33,7 @@ struct ContentView: View {
                         .font(.title2)
                         .foregroundColor(.orange)
                     
-                    Text("等待地址同步...")
+                    Text("Waiting for address sync...")
                         .font(.caption)
                         .foregroundColor(.orange)
                         .multilineTextAlignment(.center)
@@ -41,7 +41,7 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else if let currentHash = hashDict[unusedIndex] {
                 VStack(spacing: 0) {
-                    // 顶部区域：固定高度且贴顶
+                    // Top area: fixed height and stick to top
                     Text("Index: \(unusedIndex)")
                         .font(.caption2)
                         .foregroundColor(.orange)
@@ -50,7 +50,7 @@ struct ContentView: View {
                         .frame(height: 36)
                         .background(Color.black)
                     
-                    // 中间区域：自动扩展
+                    // Middle area: auto expand
                     Spacer(minLength: 2)
                     if let qrCode = generateQRCode(from: generateQRCodeContent(payerAddr: payerAddr, hash: currentHash)) {
                         Image(uiImage: qrCode)
@@ -58,16 +58,16 @@ struct ContentView: View {
                             .resizable()
                             .aspectRatio(1, contentMode: .fit)
                             .padding(.horizontal, 4)
-                            .padding(.bottom, 4) // 增加底部间距，与按钮上边缘保持距离
+                            .padding(.bottom, 4) // Add bottom spacing to keep distance from button top edge
                     }
-                    Spacer(minLength: 0) // 减少最小空间，让按钮更贴近底部
+                    Spacer(minLength: 0) // Reduce minimum space to make button closer to bottom
                     
-                    // 底部区域：贴底对齐
-                    ZStack(alignment: .bottom) { // 使用ZStack确保底部对齐
-                        Rectangle() // 创建一个矩形作为按钮背景
+                    // Bottom area: stick to bottom
+                    ZStack(alignment: .bottom) { // Use ZStack to ensure bottom alignment
+                        Rectangle() // Create a rectangle as button background
                             .fill(Color.clear)
-                            .frame(height: 36) // 增加高度以包含按钮及其内部padding
-                            .edgesIgnoringSafeArea(.bottom) // 确保延伸到屏幕底部
+                            .frame(height: 36) // Increase height to include button and its internal padding
+                            .edgesIgnoringSafeArea(.bottom) // Ensure extends to screen bottom
                                     
                         Button("refresh") {
                             if unusedIndex > 0 {
@@ -75,41 +75,41 @@ struct ContentView: View {
                                 WatchConnectivityManager.shared.sendUnusedIndex(unusedIndex)
                             }
                         }
-                        .buttonStyle(.plain) // 使用plain样式保持控制
-                        .font(.caption2) // 明确设置字体大小
-                        .foregroundColor(.white) // 白色文字更明显
-                        .padding(.vertical, 6) // 垂直方向增加内边距
-                        .padding(.horizontal, 18) // 水平方向增加内边距
-                        .background(Color.orange.opacity(0.8)) // 更鲜明的蓝色背景
-                        .cornerRadius(16) // 更大的圆角
-                        .overlay( // 添加边框使按钮更突出
+                        .buttonStyle(.plain) // Use plain style to maintain control
+                        .font(.caption2) // Explicitly set font size
+                        .foregroundColor(.white) // White text more visible
+                        .padding(.vertical, 6) // Increase vertical padding
+                        .padding(.horizontal, 18) // Increase horizontal padding
+                        .background(Color.orange.opacity(0.8)) // More vivid orange background
+                        .cornerRadius(16) // Larger corner radius
+                        .overlay( // Add border to make button more prominent
                             RoundedRectangle(cornerRadius: 16)
                                 .stroke(Color.orange, lineWidth: 1)
                         )
                         .disabled(unusedIndex <= 0)
-                        .frame(maxWidth: 240) // 稍微宽一点
+                        .frame(maxWidth: 240) // Slightly wider
                         .padding(.bottom, 2)
-                        // .buttonStyle(.plain) // 使用plain样式移除内置的大边距
+                        // .buttonStyle(.plain) // Use plain style to remove built-in large margins
                         // .foregroundColor(.blue)
-                        // .padding(.bottom, 4) // 使用小得多的自定义内边距
+                        // .padding(.bottom, 4) // Use much smaller custom padding
                         // .background(Color.blue.opacity(0.2))
                         // .cornerRadius(4)
                         // .disabled(unusedIndex <= 0)
-                        // .scaleEffect(1.2) // 整体缩放按钮
-                        // .frame(height: 20) // 固定高度
-                        // .frame(maxWidth: 80) // 较小的最大宽度
+                        // .scaleEffect(1.2) // Scale entire button
+                        // .frame(height: 20) // Fixed height
+                        // .frame(maxWidth: 80) // Smaller maximum width
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
             } else {
-                Text("当前索引无Hash数据")
+                Text("No Hash data for current index")
                     .font(.caption)
                     .foregroundColor(.red)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .onAppear {
-            // 初始化WatchConnectivity
+            // Initialize WatchConnectivity
             _ = WatchConnectivityManager.shared
             print("Watch app opened - checking for data")
             loadHashDict()
@@ -120,7 +120,7 @@ struct ContentView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .init("IndexUpdated"))) { _ in
             print("Watch UI received index update notification")
-            // unusedIndex会自动更新，因为使用了@AppStorage
+            // unusedIndex will update automatically because @AppStorage is used
         }
     }
     
@@ -144,11 +144,11 @@ struct ContentView: View {
         do {
             let doc = try QRCode.Document(utf8String: string)
             
-            // 设置样式
+            // Set style
             doc.design.backgroundColor(CGColor(red: 1, green: 1, blue: 1, alpha: 1))
             doc.design.foregroundColor(CGColor(red: 0, green: 0, blue: 0, alpha: 1))
             
-            // 更高分辨率的尺寸，适合手表屏幕扫描
+            // Higher resolution size, suitable for watch screen scanning
             let generated = try doc.uiImage(dimension: 300)
             return generated
         } catch {

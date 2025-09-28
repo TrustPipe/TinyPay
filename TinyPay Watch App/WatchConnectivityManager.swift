@@ -19,7 +19,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    // 发送unusedIndex到iPhone
+    // Send unusedIndex to iPhone
     func sendUnusedIndex(_ index: Int) {
         do {
             try WCSession.default.updateApplicationContext(["unusedIndex": index])
@@ -37,8 +37,8 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
             print("Watch WCSession error: \(error)")
         }
         
-        // 连接成功后，发送当前的unusedIndex以便同步检查
-        // iOS会根据大小关系决定是否需要更新
+        // After connection, send current unusedIndex for sync checking
+        // iOS will decide whether to update based on size comparison
         if activationState == .activated {
             let currentIndex = UserDefaults.standard.integer(forKey: "unusedIndex")
             print("Watch session activated, sending current index: \(currentIndex)")
@@ -54,14 +54,14 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         if let hashData = applicationContext["hashDict"] as? [String: String] {
             print("Watch received hash data with \(hashData.count) entries - this is a new root calculation")
             
-            // 保存数据
+            // Save data
             if let data = try? JSONSerialization.data(withJSONObject: hashData, options: []) {
                 UserDefaults.standard.set(data, forKey: "indexHashMap")
                 UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "lastSyncTimestamp")
             }
         }
         
-        // 处理 payer address 数据
+        // Handle payer address data
         if let payerAddr = applicationContext["payer_addr"] as? String {
             print("Watch received payer address: \(payerAddr)")
             UserDefaults.standard.set(payerAddr, forKey: "payer_addr")
@@ -72,21 +72,21 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
             print("Watch current unusedIndex: \(currentUnusedIndex), received: \(receivedUnusedIndex)")
             
             if hasHashData {
-                // 如果包含hash数据，说明是重新计算root，直接接受新的index
+                // If contains hash data, it means root recalculation, accept new index directly
                 UserDefaults.standard.set(receivedUnusedIndex, forKey: "unusedIndex")
                 print("Watch unusedIndex updated from \(currentUnusedIndex) to \(receivedUnusedIndex) (new root calculation)")
                 
-                // 通知UI更新
+                // Notify UI to update
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name("IndexUpdated"), object: nil)
                 }
             } else {
-                // 如果只是index同步，使用原来的逻辑（只有自己index更大才更新）
+                // If only index sync, use original logic (only update if own index is larger)
                 if currentUnusedIndex > receivedUnusedIndex {
                     UserDefaults.standard.set(receivedUnusedIndex, forKey: "unusedIndex")
                     print("Watch unusedIndex updated from \(currentUnusedIndex) to \(receivedUnusedIndex) (Watch had larger index)")
                     
-                    // 通知UI更新
+                    // Notify UI to update
                     DispatchQueue.main.async {
                         NotificationCenter.default.post(name: NSNotification.Name("IndexUpdated"), object: nil)
                     }
@@ -98,7 +98,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
             }
         }
         
-        // 只有在包含hash数据时才通知UI数据已更新
+        // Only notify UI data updated when hash data is included
         if hasHashData {
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: NSNotification.Name("DataUpdated"), object: nil)

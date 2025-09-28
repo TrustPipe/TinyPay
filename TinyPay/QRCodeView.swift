@@ -43,7 +43,7 @@ struct QRCodeView: View {
                         .buttonStyle(.borderedProminent)
                         .disabled(unusedIndex <= 0)
                         
-                        // Dev only 显示当前二维码的数据
+                        // Dev only Display the data of the QRCODE, dev usage only
                         VStack(spacing: 10) {                            
                             VStack(spacing: 5) {
                                 Text("Payer Address:")
@@ -96,7 +96,7 @@ struct QRCodeView: View {
     private func refreshQRCode() {
         if unusedIndex > 0 {
             unusedIndex -= 1
-            // 只发送更新后的index到手表，不需要重新发送整个hashDict
+            // send newist hash only, do not sync hashDict
             WatchConnectivityManager.shared.sendUnusedIndex(unusedIndex)
         }
     }

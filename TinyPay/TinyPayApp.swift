@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct AptosEveryWhereApp: App {
     init() {
-        // 初始化WatchConnectivity
+        // Init WatchConnectivity
         _ = WatchConnectivityManager.shared
         print("iOS WatchConnectivity initialized")
     }

@@ -134,15 +134,13 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .padding(.horizontal)
                     }
-                    
-                    // 底部间距，避免键盘遮挡
+
                     Spacer(minLength: 100)
                 }
             }
             .navigationTitle("Setting")
             .navigationBarTitleDisplayMode(.inline)
             .onTapGesture {
-                // 点击空白区域收起键盘
                 isRootFieldFocused = false
                 isPayerAddrFieldFocused = false
             }
@@ -164,12 +162,11 @@ struct SettingsView: View {
                 self.saveHashDict(dict)
                 self.isCalculating = false
                 self.calculationDone = true
-                // 重置 unusedIndex 到倒数第二个，因为最后一个已经被默认使用了
                 self.unusedIndex = 998
                 
-                // 同步数据到手表（后台传输，手表打开时会自动接收）
-                WatchConnectivityManager.shared.sendDataToWatch(hashDict: dict, unusedIndex: 998, payerAddr: self.payerAddr)
-                print("Hash数据、unusedIndex和PayerAddr已发送到手表（后台传输）")
+                // Sync data to watch (background transfer, watch will receive automatically when opened)
+                WatchConnectivityManager.shared.sendDataToWatch(hashDict: dict, unusedIndex: self.unusedIndex, payerAddr: self.payerAddr)
+                print("Hash data, unusedIndex and PayerAddr sent to watch (background transfer)")
             }
         }
     }
@@ -178,7 +175,7 @@ struct SettingsView: View {
         var dict: [Int: String] = [:]
         var currentString = root
         
-        print("开始链式计算1000次SHA256，root: \(root)")
+        print("Cal hash link list, the root is: \(root)")
         
         for i in 0..<1000 {
             let data = Data(currentString.utf8)
@@ -186,14 +183,10 @@ struct SettingsView: View {
             let hashString = hash.compactMap { String(format: "%02x", $0) }.joined()
             
             dict[i] = hashString
-            currentString = hashString  // 下一次计算使用这次的结果作为输入
-            
-            if i % 100 == 0 {
-                print("第\(i+1)次计算: \(hashString.prefix(16))...")
-            }
+            currentString = hashString
         }
         
-        print("计算完成！第1000次hash(index 999): \(dict[999] ?? "未找到")")
+        print("Cal Done! tail(index 999) is: \(dict[999] ?? "Not found")")
         return dict
     }
     
@@ -209,7 +202,7 @@ struct SettingsView: View {
             calculationDone = true
         }
         
-        // 加载已保存的 payer address
+        // load payer address
         inputPayerAddr = payerAddr
     }
     
@@ -228,7 +221,7 @@ struct SettingsView: View {
     private func syncToWatch() {
         if !hashDict.isEmpty {
             WatchConnectivityManager.shared.sendDataToWatch(hashDict: hashDict, unusedIndex: unusedIndex, payerAddr: payerAddr)
-            print("手动同步数据、unusedIndex和PayerAddr到手表")
+            print("Manual sync hash link list, unusedIndex and PayerAddr to iWatch")
         }
     }
 }

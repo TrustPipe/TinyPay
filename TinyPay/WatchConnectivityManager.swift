@@ -36,7 +36,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
             "timestamp": Date().timeIntervalSince1970
         ]
         
-        // 如果有 payer address，添加到传输数据中
+        // Add payer address
         if !payerAddr.isEmpty {
             context["payer_addr"] = payerAddr
         }
@@ -49,7 +49,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    // 发送hash字典到手表
+    // Send Hash link list
     func sendHashDict(_ dict: [Int: String]) {
         let stringKeyDict = Dictionary(uniqueKeysWithValues: dict.map { (String($0.key), $0.value) })
         
@@ -61,7 +61,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    // 发送unusedIndex到手表
+    // send unusedIndex
     func sendUnusedIndex(_ index: Int) {
         guard WCSession.default.isReachable else {
             print("Watch not reachable, cannot send unusedIndex")
@@ -86,8 +86,8 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
             print("iOS WCSession error: \(error)")
         }
         
-        // 连接成功后，发送当前的unusedIndex以便同步检查
-        // Watch会根据大小关系决定是否需要更新
+        // After connection, send current unusedIndex for sync checking
+        // Watch will decide whether to update based on size comparison
         if activationState == .activated {
             let currentIndex = UserDefaults.standard.integer(forKey: "unusedIndex")
             print("iOS session activated, sending current index: \(currentIndex)")
@@ -110,12 +110,12 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
             let currentUnusedIndex = UserDefaults.standard.integer(forKey: "unusedIndex")
             print("iOS current unusedIndex: \(currentUnusedIndex), received: \(receivedUnusedIndex)")
             
-            // 如果当前iOS的unusedIndex更大，则更新为较小的值
+            // If current iOS unusedIndex is larger, update to the smaller value
             if currentUnusedIndex > receivedUnusedIndex {
                 UserDefaults.standard.set(receivedUnusedIndex, forKey: "unusedIndex")
                 print("iOS unusedIndex updated from \(currentUnusedIndex) to \(receivedUnusedIndex) (iOS had larger index)")
                 
-                // 通知UI更新
+                // Notify UI to update
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name("IndexUpdated"), object: nil)
                 }
