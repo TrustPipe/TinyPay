@@ -9,7 +9,7 @@ import SwiftUI
 import CryptoKit
 
 struct QRCodeView: View {
-    @AppStorage("unusedIndex") private var unusedIndex: Int = 998  // 从倒数第二个开始
+    @AppStorage("unusedIndex") private var unusedIndex: Int = 998  // The first available index is the one before tail
     @AppStorage("payer_addr") private var payerAddr: String = ""
     @State private var hashDict: [Int: String] = [:]
     
@@ -44,20 +44,7 @@ struct QRCodeView: View {
                         .disabled(unusedIndex <= 0)
                         
                         // Dev only 显示当前二维码的数据
-                        VStack(spacing: 10) {
-                            VStack(spacing: 5) {
-                                Text("二维码数据:")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                
-                                Text(qrCodeContent)
-                                    .font(.system(.caption2, design: .monospaced))
-                                    .padding(8)
-                                    .background(Color.gray.opacity(0.1))
-                                    .cornerRadius(6)
-                                    .textSelection(.enabled)
-                            }
-                            
+                        VStack(spacing: 10) {                            
                             VStack(spacing: 5) {
                                 Text("Payer Address:")
                                     .font(.caption)
@@ -72,7 +59,7 @@ struct QRCodeView: View {
                             }
                             
                             VStack(spacing: 5) {
-                                Text("Hash值:")
+                                Text("Hash Value:")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
                                 
@@ -86,7 +73,7 @@ struct QRCodeView: View {
                         }
                         
                         if unusedIndex <= 0 {
-                            Text("已使用完所有Hash")
+                            Text("All Hash used")
                                 .foregroundColor(.red)
                                 .font(.caption)
                         }

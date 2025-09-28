@@ -11,7 +11,7 @@ import CryptoKit
 struct SettingsView: View {
     @AppStorage("root") private var root: String = ""
     @AppStorage("payer_addr") private var payerAddr: String = ""
-    @AppStorage("unusedIndex") private var unusedIndex: Int = 998  // 从倒数第二个开始
+    @AppStorage("unusedIndex") private var unusedIndex: Int = 998  // The first available index is the one before tail
     @State private var inputRoot: String = ""
     @State private var inputPayerAddr: String = ""
     @State private var isCalculating = false
@@ -24,7 +24,7 @@ struct SettingsView: View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 20) {
-                    // Payer Address 部分
+                    // Payer Address
                     VStack(spacing: 12) {
                         HStack {
                             Text("Payer Address")
@@ -33,14 +33,14 @@ struct SettingsView: View {
                         }
                         
                         HStack {
-                            TextField("输入或粘贴 payer address", text: $inputPayerAddr)
+                            TextField("Type your payer address here", text: $inputPayerAddr)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .focused($isPayerAddrFieldFocused)
                                 .autocapitalization(.none)
                                 .disableAutocorrection(true)
                                 .keyboardType(.asciiCapable)
                             
-                            Button("保存") {
+                            Button("SAVE") {
                                 if !inputPayerAddr.isEmpty {
                                     isPayerAddrFieldFocused = false
                                     payerAddr = inputPayerAddr
@@ -53,7 +53,7 @@ struct SettingsView: View {
                         if !payerAddr.isEmpty {
                             VStack(spacing: 4) {
                                 HStack {
-                                    Text("当前地址:")
+                                    Text("Current Address:")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                     Spacer()
@@ -74,19 +74,19 @@ struct SettingsView: View {
                     Divider()
                         .padding(.horizontal)
                     
-                    // Hash Calculation 部分
+                    // Hash Calculation/OTP generation
                     VStack(spacing: 12) {
                         HStack {
-                            Text("Hash Calculation")
+                            Text("OTP generation")
                                 .font(.headline)
                             Spacer()
                         }
                         
-                        TextField("输入 root 字符串", text: $inputRoot)
+                        TextField("Please input the root of OTPs", text: $inputRoot)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .focused($isRootFieldFocused)
                         
-                        Button("开始计算") {
+                        Button("Start Calculation") {
                             if !inputRoot.isEmpty {
                                 isRootFieldFocused = false
                                 root = inputRoot
@@ -99,18 +99,14 @@ struct SettingsView: View {
                     .padding(.horizontal)
                     
                     if isCalculating {
-                        ProgressView("计算中...")
+                        ProgressView("Calculating...")
                             .padding()
                     }
                     
                     if calculationDone, let finalHash = hashDict[999] {
                         VStack(spacing: 10) {
-                            Text("第1000次Hash结果:")
+                            Text("The tail of the OTP list:")
                                 .font(.headline)
-                            
-                            Text("Index: 999 (第1000次) - 已使用")
-                                .font(.caption)
-                                .foregroundColor(.red)
                             
                             Text(finalHash)
                                 .font(.system(.caption, design: .monospaced))
@@ -119,12 +115,12 @@ struct SettingsView: View {
                                 .cornerRadius(8)
                                 .textSelection(.enabled)
                             
-                            Button("拷贝") {
+                            Button("COPY") {
                                 UIPasteboard.general.string = finalHash
                             }
                             .buttonStyle(.bordered)
                             
-                            Text("下一个可用: Index \(unusedIndex)")
+                            Text("Next available: Index \(unusedIndex)")
                                 .font(.caption)
                                 .foregroundColor(.green)
                         }
@@ -132,7 +128,7 @@ struct SettingsView: View {
                     }
                     
                     if calculationDone && !hashDict.isEmpty {
-                        Button("同步到手表") {
+                        Button("sync to watch") {
                             syncToWatch()
                         }
                         .buttonStyle(.bordered)
@@ -143,7 +139,7 @@ struct SettingsView: View {
                     Spacer(minLength: 100)
                 }
             }
-            .navigationTitle("设置")
+            .navigationTitle("Setting")
             .navigationBarTitleDisplayMode(.inline)
             .onTapGesture {
                 // 点击空白区域收起键盘
