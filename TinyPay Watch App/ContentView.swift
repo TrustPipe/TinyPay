@@ -137,7 +137,7 @@ struct ContentView: View {
     }
     
     func generateQRCodeContent(payerAddr: String, hash: String) -> String {
-        return "addr:\(payerAddr) opt:0x\(hash)"
+        return "addr:\(payerAddr) otp:0x\(hash)"
     }
     
     func generateQRCode(from string: String) -> UIImage? {

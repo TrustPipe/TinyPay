@@ -132,7 +132,7 @@ struct QRCodeView: View {
     }
     
     private func generateQRCodeContent(payerAddr: String, hash: String) -> String {
-        return "addr:\(payerAddr) opt:0x\(hash)"
+        return "addr:\(payerAddr) otp:0x\(hash)"
     }
     
     private func calculateSHA256(of string: String) -> String {
