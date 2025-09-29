@@ -25,7 +25,7 @@ struct WelcomeView: View {
             title: "Welcome to TinyPay",
             subtitle: "Secure Payment App with OTP Technology",
             icon: "creditcard.circle.fill",
-            description: "TinyPay helps users generate OTP for offline payments based on custom OTP-ROOT and converts them into QR codes.\nBefore you get the full experience, please visit our landing page at tinypay.top"
+            description: "TinyPay helps users generate OTP for offline payments based on custom OTP-ROOT and converts them into QR codes."
         ),
         WelcomePage(
             title: "Setup Payment Address",

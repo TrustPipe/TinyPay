@@ -26,7 +26,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         }
     }
     
-    // 发送hash字典、unusedIndex和payer address到手表（合并发送以确保原子性）
+    // Send hash dictionary, unusedIndex and payer address to watch (combined send to ensure atomicity)
     func sendDataToWatch(hashDict: [Int: String], unusedIndex: Int, payerAddr: String = "") {
         let stringKeyDict = Dictionary(uniqueKeysWithValues: hashDict.map { (String($0.key), $0.value) })
         
