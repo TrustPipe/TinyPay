@@ -134,12 +134,54 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .padding(.horizontal)
                     }
+                    
+                    Divider()
+                        .padding(.horizontal)
+                    
+                    // App Info and Help
+                    VStack(spacing: 15) {
+                        HStack {
+                            Text("App Information")
+                                .font(.headline)
+                            Spacer()
+                        }
+                        
+                        VStack(spacing: 8) {
+                            InfoRow(title: "Version", value: "1.0.0")
+                            InfoRow(title: "Developer", value: "TrustPipe")
+                            InfoRow(title: "Platform", value: "iOS & watchOS")
+                        }
+                        
+                        NavigationLink(destination: HelpView()) {
+                            HStack {
+                                Image(systemName: "questionmark.circle.fill")
+                                    .foregroundColor(.blue)
+                                Text("User Guide")
+                                    .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.secondary)
+                                    .font(.caption)
+                            }
+                            .padding()
+                            .background(Color.blue.opacity(0.1))
+                            .cornerRadius(8)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                    .padding(.horizontal)
 
                     Spacer(minLength: 100)
                 }
             }
             .navigationTitle("Setting")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                trailing: NavigationLink(destination: HelpView()) {
+                    Image(systemName: "questionmark.circle")
+                        .font(.title3)
+                }
+            )
             .onTapGesture {
                 isRootFieldFocused = false
                 isPayerAddrFieldFocused = false
@@ -223,6 +265,22 @@ struct SettingsView: View {
             WatchConnectivityManager.shared.sendDataToWatch(hashDict: hashDict, unusedIndex: unusedIndex, payerAddr: payerAddr)
             print("Manual sync hash link list, unusedIndex and PayerAddr to iWatch")
         }
+    }
+}
+
+struct InfoRow: View {
+    let title: String
+    let value: String
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .foregroundColor(.secondary)
+            Spacer()
+            Text(value)
+                .fontWeight(.medium)
+        }
+        .font(.subheadline)
     }
 }
 

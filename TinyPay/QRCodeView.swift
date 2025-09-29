@@ -17,7 +17,7 @@ struct QRCodeView: View {
         NavigationView {
             VStack(spacing: 20) {
                 if hashDict.isEmpty {
-                    Text("Pleas setup your OTP root")
+                    Text("Please setup your OTP root")
                         .foregroundColor(.secondary)
                 } else if payerAddr.isEmpty {
                     Text("Please setup your Payer Address")
@@ -73,7 +73,7 @@ struct QRCodeView: View {
                         }
                         
                         if unusedIndex <= 0 {
-                            Text("All Hash used")
+                            Text("All hashes used")
                                 .foregroundColor(.red)
                                 .font(.caption)
                         }
@@ -89,6 +89,18 @@ struct QRCodeView: View {
             .navigationTitle("QR Code")
             .onAppear {
                 loadHashDict()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .init("HashDataUpdated"))) { _ in
+                print("QRCodeView received hash data update notification")
+                loadHashDict()
+            }
+            .onChange(of: payerAddr) { _ in
+                // Reload when payer address changes
+                loadHashDict()
+            }
+            .onChange(of: unusedIndex) { _ in
+                // UI will automatically update due to @AppStorage binding
+                print("Unused index changed to: \(unusedIndex)")
             }
         }
     }

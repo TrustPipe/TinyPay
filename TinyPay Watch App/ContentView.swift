@@ -69,7 +69,7 @@ struct ContentView: View {
                             .frame(height: 36) // Increase height to include button and its internal padding
                             .edgesIgnoringSafeArea(.bottom) // Ensure extends to screen bottom
                                     
-                        Button("refresh") {
+                        Button("Refresh") {
                             if unusedIndex > 0 {
                                 unusedIndex -= 1
                                 WatchConnectivityManager.shared.sendUnusedIndex(unusedIndex)
@@ -102,7 +102,7 @@ struct ContentView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
             } else {
-                Text("No Hash data for current index")
+                Text("No hash data for current index")
                     .font(.caption)
                     .foregroundColor(.red)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct AptosEveryWhereApp: App {
+    @AppStorage("hasSeenWelcome") private var hasSeenWelcome: Bool = false
+    
     init() {
         // Init WatchConnectivity
         _ = WatchConnectivityManager.shared
@@ -17,7 +19,24 @@ struct AptosEveryWhereApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainAppView(hasSeenWelcome: $hasSeenWelcome)
         }
+    }
+}
+
+struct MainAppView: View {
+    @Binding var hasSeenWelcome: Bool
+    @State private var showWelcome = false
+    
+    var body: some View {
+        ContentView()
+            .sheet(isPresented: $showWelcome) {
+                WelcomeView(showWelcome: $showWelcome)
+            }
+            .onAppear {
+                if !hasSeenWelcome {
+                    showWelcome = true
+                }
+            }
     }
 }
