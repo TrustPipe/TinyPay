@@ -1,0 +1,1007 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F24CF9912E7BD0B6006D9D61 /* TinyPay Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F24CF9902E7BD0B6006D9D61 /* TinyPay Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F24CF9D42E7BD303006D9D61 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = F24CF9D32E7BD303006D9D61 /* QRCode */; };
+		F24CF9D62E7BD303006D9D61 /* QRCodeStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F24CF9D52E7BD303006D9D61 /* QRCodeStatic */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F24CF97B2E7BD0B6006D9D61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F24CF9652E7BD0B3006D9D61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F24CF96C2E7BD0B4006D9D61;
+			remoteInfo = TinyPay;
+		};
+		F24CF9852E7BD0B6006D9D61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F24CF9652E7BD0B3006D9D61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F24CF96C2E7BD0B4006D9D61;
+			remoteInfo = TinyPay;
+		};
+		F24CF9922E7BD0B6006D9D61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F24CF9652E7BD0B3006D9D61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F24CF98F2E7BD0B6006D9D61;
+			remoteInfo = "TinyPay Watch App";
+		};
+		F24CF9A02E7BD0B7006D9D61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F24CF9652E7BD0B3006D9D61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F24CF98F2E7BD0B6006D9D61;
+			remoteInfo = "TinyPay Watch App";
+		};
+		F24CF9AA2E7BD0B7006D9D61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F24CF9652E7BD0B3006D9D61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F24CF98F2E7BD0B6006D9D61;
+			remoteInfo = "TinyPay Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F24CF9B62E7BD0B7006D9D61 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F24CF9912E7BD0B6006D9D61 /* TinyPay Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F24CF96D2E7BD0B4006D9D61 /* TinyPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24CF97A2E7BD0B6006D9D61 /* TinyPayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyPayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24CF9842E7BD0B6006D9D61 /* TinyPayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyPayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24CF9902E7BD0B6006D9D61 /* TinyPay Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TinyPay Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24CF99F2E7BD0B7006D9D61 /* TinyPay Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TinyPay Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24CF9A92E7BD0B7006D9D61 /* TinyPay Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TinyPay Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F24CF96F2E7BD0B4006D9D61 /* TinyPay */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TinyPay;
+			sourceTree = "<group>";
+		};
+		F24CF97D2E7BD0B6006D9D61 /* TinyPayTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TinyPayTests;
+			sourceTree = "<group>";
+		};
+		F24CF9872E7BD0B6006D9D61 /* TinyPayUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TinyPayUITests;
+			sourceTree = "<group>";
+		};
+		F24CF9942E7BD0B6006D9D61 /* TinyPay Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "TinyPay Watch App";
+			sourceTree = "<group>";
+		};
+		F24CF9A22E7BD0B7006D9D61 /* TinyPay Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "TinyPay Watch AppTests";
+			sourceTree = "<group>";
+		};
+		F24CF9AC2E7BD0B7006D9D61 /* TinyPay Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "TinyPay Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F24CF96A2E7BD0B4006D9D61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9772E7BD0B6006D9D61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9812E7BD0B6006D9D61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF98D2E7BD0B6006D9D61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F24CF9D62E7BD303006D9D61 /* QRCodeStatic in Frameworks */,
+				F24CF9D42E7BD303006D9D61 /* QRCode in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF99C2E7BD0B7006D9D61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9A62E7BD0B7006D9D61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F24CF9642E7BD0B3006D9D61 = {
+			isa = PBXGroup;
+			children = (
+				F24CF96F2E7BD0B4006D9D61 /* TinyPay */,
+				F24CF97D2E7BD0B6006D9D61 /* TinyPayTests */,
+				F24CF9872E7BD0B6006D9D61 /* TinyPayUITests */,
+				F24CF9942E7BD0B6006D9D61 /* TinyPay Watch App */,
+				F24CF9A22E7BD0B7006D9D61 /* TinyPay Watch AppTests */,
+				F24CF9AC2E7BD0B7006D9D61 /* TinyPay Watch AppUITests */,
+				F24CF96E2E7BD0B4006D9D61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F24CF96E2E7BD0B4006D9D61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F24CF96D2E7BD0B4006D9D61 /* TinyPay.app */,
+				F24CF97A2E7BD0B6006D9D61 /* TinyPayTests.xctest */,
+				F24CF9842E7BD0B6006D9D61 /* TinyPayUITests.xctest */,
+				F24CF9902E7BD0B6006D9D61 /* TinyPay Watch App.app */,
+				F24CF99F2E7BD0B7006D9D61 /* TinyPay Watch AppTests.xctest */,
+				F24CF9A92E7BD0B7006D9D61 /* TinyPay Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F24CF96C2E7BD0B4006D9D61 /* TinyPay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F24CF9B72E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay" */;
+			buildPhases = (
+				F24CF9692E7BD0B4006D9D61 /* Sources */,
+				F24CF96A2E7BD0B4006D9D61 /* Frameworks */,
+				F24CF96B2E7BD0B4006D9D61 /* Resources */,
+				F24CF9B62E7BD0B7006D9D61 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F24CF9932E7BD0B6006D9D61 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F24CF96F2E7BD0B4006D9D61 /* TinyPay */,
+			);
+			name = TinyPay;
+			packageProductDependencies = (
+			);
+			productName = TinyPay;
+			productReference = F24CF96D2E7BD0B4006D9D61 /* TinyPay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F24CF9792E7BD0B6006D9D61 /* TinyPayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F24CF9BA2E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPayTests" */;
+			buildPhases = (
+				F24CF9762E7BD0B6006D9D61 /* Sources */,
+				F24CF9772E7BD0B6006D9D61 /* Frameworks */,
+				F24CF9782E7BD0B6006D9D61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F24CF97C2E7BD0B6006D9D61 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F24CF97D2E7BD0B6006D9D61 /* TinyPayTests */,
+			);
+			name = TinyPayTests;
+			packageProductDependencies = (
+			);
+			productName = TinyPayTests;
+			productReference = F24CF97A2E7BD0B6006D9D61 /* TinyPayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F24CF9832E7BD0B6006D9D61 /* TinyPayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F24CF9BD2E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPayUITests" */;
+			buildPhases = (
+				F24CF9802E7BD0B6006D9D61 /* Sources */,
+				F24CF9812E7BD0B6006D9D61 /* Frameworks */,
+				F24CF9822E7BD0B6006D9D61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F24CF9862E7BD0B6006D9D61 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F24CF9872E7BD0B6006D9D61 /* TinyPayUITests */,
+			);
+			name = TinyPayUITests;
+			packageProductDependencies = (
+			);
+			productName = TinyPayUITests;
+			productReference = F24CF9842E7BD0B6006D9D61 /* TinyPayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		F24CF98F2E7BD0B6006D9D61 /* TinyPay Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F24CF9B32E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay Watch App" */;
+			buildPhases = (
+				F24CF98C2E7BD0B6006D9D61 /* Sources */,
+				F24CF98D2E7BD0B6006D9D61 /* Frameworks */,
+				F24CF98E2E7BD0B6006D9D61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F24CF9942E7BD0B6006D9D61 /* TinyPay Watch App */,
+			);
+			name = "TinyPay Watch App";
+			packageProductDependencies = (
+				F24CF9D32E7BD303006D9D61 /* QRCode */,
+				F24CF9D52E7BD303006D9D61 /* QRCodeStatic */,
+			);
+			productName = "TinyPay Watch App";
+			productReference = F24CF9902E7BD0B6006D9D61 /* TinyPay Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F24CF99E2E7BD0B7006D9D61 /* TinyPay Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F24CF9C02E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay Watch AppTests" */;
+			buildPhases = (
+				F24CF99B2E7BD0B7006D9D61 /* Sources */,
+				F24CF99C2E7BD0B7006D9D61 /* Frameworks */,
+				F24CF99D2E7BD0B7006D9D61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F24CF9A12E7BD0B7006D9D61 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F24CF9A22E7BD0B7006D9D61 /* TinyPay Watch AppTests */,
+			);
+			name = "TinyPay Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "TinyPay Watch AppTests";
+			productReference = F24CF99F2E7BD0B7006D9D61 /* TinyPay Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F24CF9A82E7BD0B7006D9D61 /* TinyPay Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F24CF9C32E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay Watch AppUITests" */;
+			buildPhases = (
+				F24CF9A52E7BD0B7006D9D61 /* Sources */,
+				F24CF9A62E7BD0B7006D9D61 /* Frameworks */,
+				F24CF9A72E7BD0B7006D9D61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F24CF9AB2E7BD0B7006D9D61 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F24CF9AC2E7BD0B7006D9D61 /* TinyPay Watch AppUITests */,
+			);
+			name = "TinyPay Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "TinyPay Watch AppUITests";
+			productReference = F24CF9A92E7BD0B7006D9D61 /* TinyPay Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F24CF9652E7BD0B3006D9D61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					F24CF96C2E7BD0B4006D9D61 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					F24CF9792E7BD0B6006D9D61 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F24CF96C2E7BD0B4006D9D61;
+					};
+					F24CF9832E7BD0B6006D9D61 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F24CF96C2E7BD0B4006D9D61;
+					};
+					F24CF98F2E7BD0B6006D9D61 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					F24CF99E2E7BD0B7006D9D61 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F24CF98F2E7BD0B6006D9D61;
+					};
+					F24CF9A82E7BD0B7006D9D61 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = F24CF98F2E7BD0B6006D9D61;
+					};
+				};
+			};
+			buildConfigurationList = F24CF9682E7BD0B3006D9D61 /* Build configuration list for PBXProject "TinyPay" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F24CF9642E7BD0B3006D9D61;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F24CF9D22E7BD303006D9D61 /* XCRemoteSwiftPackageReference "qrcode" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F24CF96E2E7BD0B4006D9D61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F24CF96C2E7BD0B4006D9D61 /* TinyPay */,
+				F24CF9792E7BD0B6006D9D61 /* TinyPayTests */,
+				F24CF9832E7BD0B6006D9D61 /* TinyPayUITests */,
+				F24CF98F2E7BD0B6006D9D61 /* TinyPay Watch App */,
+				F24CF99E2E7BD0B7006D9D61 /* TinyPay Watch AppTests */,
+				F24CF9A82E7BD0B7006D9D61 /* TinyPay Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F24CF96B2E7BD0B4006D9D61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9782E7BD0B6006D9D61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9822E7BD0B6006D9D61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF98E2E7BD0B6006D9D61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF99D2E7BD0B7006D9D61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9A72E7BD0B7006D9D61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F24CF9692E7BD0B4006D9D61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9762E7BD0B6006D9D61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9802E7BD0B6006D9D61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF98C2E7BD0B6006D9D61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF99B2E7BD0B7006D9D61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F24CF9A52E7BD0B7006D9D61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F24CF97C2E7BD0B6006D9D61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F24CF96C2E7BD0B4006D9D61 /* TinyPay */;
+			targetProxy = F24CF97B2E7BD0B6006D9D61 /* PBXContainerItemProxy */;
+		};
+		F24CF9862E7BD0B6006D9D61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F24CF96C2E7BD0B4006D9D61 /* TinyPay */;
+			targetProxy = F24CF9852E7BD0B6006D9D61 /* PBXContainerItemProxy */;
+		};
+		F24CF9932E7BD0B6006D9D61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F24CF98F2E7BD0B6006D9D61 /* TinyPay Watch App */;
+			targetProxy = F24CF9922E7BD0B6006D9D61 /* PBXContainerItemProxy */;
+		};
+		F24CF9A12E7BD0B7006D9D61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F24CF98F2E7BD0B6006D9D61 /* TinyPay Watch App */;
+			targetProxy = F24CF9A02E7BD0B7006D9D61 /* PBXContainerItemProxy */;
+		};
+		F24CF9AB2E7BD0B7006D9D61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F24CF98F2E7BD0B6006D9D61 /* TinyPay Watch App */;
+			targetProxy = F24CF9AA2E7BD0B7006D9D61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F24CF9B12E7BD0B7006D9D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F24CF9B22E7BD0B7006D9D61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F24CF9B42E7BD0B7006D9D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TinyPay;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = test.TrustPipe.TinyPay.Customer;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.Customer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		F24CF9B52E7BD0B7006D9D61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TinyPay;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = test.TrustPipe.TinyPay.Customer;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.Customer.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		F24CF9B82E7BD0B7006D9D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TinyPay;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.Customer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F24CF9B92E7BD0B7006D9D61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = TinyPay;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.Customer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F24CF9BB2E7BD0B7006D9D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.TinyPayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TinyPay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TinyPay";
+			};
+			name = Debug;
+		};
+		F24CF9BC2E7BD0B7006D9D61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.TinyPayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TinyPay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TinyPay";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F24CF9BE2E7BD0B7006D9D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.TinyPayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TinyPay;
+			};
+			name = Debug;
+		};
+		F24CF9BF2E7BD0B7006D9D61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TrustPipe.TinyPay.TinyPayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TinyPay;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F24CF9C12E7BD0B7006D9D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "test.TrustPipe.TinyPay.TinyPay-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TinyPay Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TinyPay Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		F24CF9C22E7BD0B7006D9D61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "test.TrustPipe.TinyPay.TinyPay-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TinyPay Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TinyPay Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		F24CF9C42E7BD0B7006D9D61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "test.TrustPipe.TinyPay.TinyPay-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "TinyPay Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		F24CF9C52E7BD0B7006D9D61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UD3269PSCB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "test.TrustPipe.TinyPay.TinyPay-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "TinyPay Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F24CF9682E7BD0B3006D9D61 /* Build configuration list for PBXProject "TinyPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F24CF9B12E7BD0B7006D9D61 /* Debug */,
+				F24CF9B22E7BD0B7006D9D61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F24CF9B32E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F24CF9B42E7BD0B7006D9D61 /* Debug */,
+				F24CF9B52E7BD0B7006D9D61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F24CF9B72E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F24CF9B82E7BD0B7006D9D61 /* Debug */,
+				F24CF9B92E7BD0B7006D9D61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F24CF9BA2E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F24CF9BB2E7BD0B7006D9D61 /* Debug */,
+				F24CF9BC2E7BD0B7006D9D61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F24CF9BD2E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F24CF9BE2E7BD0B7006D9D61 /* Debug */,
+				F24CF9BF2E7BD0B7006D9D61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F24CF9C02E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F24CF9C12E7BD0B7006D9D61 /* Debug */,
+				F24CF9C22E7BD0B7006D9D61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F24CF9C32E7BD0B7006D9D61 /* Build configuration list for PBXNativeTarget "TinyPay Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F24CF9C42E7BD0B7006D9D61 /* Debug */,
+				F24CF9C52E7BD0B7006D9D61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F24CF9D22E7BD303006D9D61 /* XCRemoteSwiftPackageReference "qrcode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dagronf/qrcode.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 27.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F24CF9D32E7BD303006D9D61 /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F24CF9D22E7BD303006D9D61 /* XCRemoteSwiftPackageReference "qrcode" */;
+			productName = QRCode;
+		};
+		F24CF9D52E7BD303006D9D61 /* QRCodeStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F24CF9D22E7BD303006D9D61 /* XCRemoteSwiftPackageReference "qrcode" */;
+			productName = QRCodeStatic;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F24CF9652E7BD0B3006D9D61 /* Project object */;
+}
