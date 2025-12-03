@@ -1,78 +1,48 @@
-# TinyPay - OTP-Based Payment App
+# TinyPay
 
-TinyPay is a secure payment application based on One-Time Password (OTP) technology, supporting both iOS and Apple Watch platforms.
+Secure offline payment app using OTP technology.
 
-## 🚀 Features
+## Features
 
-- **Secure Payments**: Uses OTP (One-Time Password) technology to ensure uniqueness and security for each payment
-- **QR Code Generation**: Automatically generates QR codes containing payment information
-- **Dual Platform Support**: Supports both iOS and Apple Watch
-- **Real-time Sync**: Real-time synchronization of payment data between iOS and Watch
-- **Clean Interface**: Intuitive and user-friendly interface
+- Generate unique payment QR codes using SHA256 hash chains
+- Each payment code can only be used once
+- Works on iPhone and Apple Watch
+- Auto-sync between devices
+- No internet required
 
-## 📱 How to Use
+## Quick Start
 
-### Initial Setup
+### First Time Setup
 
-1. **Set Payment Address**
-   - Open the app and switch to the "Settings" tab
-   - Enter your payment address in the "Payer Address" input field
-   - Click "SAVE" to save
+1. Enter your payment address
+2. Enter your OTP root key
+3. Wait for hash chain generation (1000 codes)
+4. Show QR code to receive payment
 
-2. **Generate OTP Chain**
-   - Enter your OTP root key in the "OTP generation" section
-   - Click "Start Calculation" to begin calculation
-   - Wait for completion (generates a chain of 1000 hash values)
-   - The system will display the tail hash value of the OTP chain
+### Daily Use
 
-3. **Sync to Apple Watch**
-   - After calculation is complete, click "sync to watch"
-   - Data will automatically sync to your Apple Watch
+1. Open "Show to Pay" tab
+2. Show QR code to payer
+3. Tap "Refresh" after each payment
 
-### Daily Usage
+## Requirements
 
-1. **Generate Payment QR Code**
-   - Switch to the "Show to Pay" tab
-   - The app will automatically display the current available QR code
-   - The QR code contains your payment address and current OTP hash value
+- iOS 14.0+
+- watchOS 7.0+ (optional)
 
-2. **Refresh QR Code**
-   - After each use, click "Refresh QR Code" to generate a new QR code
-   - The system will automatically use the next OTP value to ensure security
+## Technical Details
 
-3. **Apple Watch Usage**
-   - Open the app on your Watch
-   - QR code displays directly without additional operations
-   - Real-time sync with iPhone data
+- Language: Swift
+- Framework: SwiftUI
+- Algorithm: SHA256
+- Storage: Local only
 
-## 🔒 Security Mechanism
+## Notes
 
-- **OTP Chain Structure**: Uses SHA256 algorithm to generate 1000 consecutive hash values
-- **One-time Use**: Each OTP can only be used once and expires automatically after use
-- **Index Tracking**: System automatically tracks used OTP indices
-- **Encrypted Storage**: All data is stored locally with encryption
+- Backup your OTP root key
+- Regenerate chain when depleted
+- Keep devices paired for sync
 
-## ⚙️ Technical Specifications
+## Developer
 
-- **Development Language**: Swift
-- **Framework**: SwiftUI
-- **Supported Platforms**: iOS 14.0+, watchOS 7.0+
-- **Encryption Algorithm**: SHA256
-- **Data Synchronization**: WatchConnectivity Framework
-
-## 📝 Important Notes
-
-- Initial setup must be completed before first use
-- OTP chain needs to be regenerated when depleted
-- Regular backup of OTP root key is recommended
-- Apple Watch must be paired with iPhone for use
-
-## 🛠️ Development Information
-
-- **Developer**: Harold
-- **Creation Date**: September 18, 2025
-- **Project Type**: Native iOS/watchOS Application
-
-## 📄 License
-
-This project is for learning and research purposes only.
+Harold, 2025
