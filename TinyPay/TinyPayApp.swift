@@ -40,3 +40,15 @@ struct MainAppView: View {
             }
     }
 }
+
+extension Color {
+    static let themePurple = Color(red: 0.56, green: 0.31, blue: 0.85)
+}
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif

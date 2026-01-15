@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F24386392F190CAE007FD1B1 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = F24386382F190CAE007FD1B1 /* web3.swift */; };
 		F24CF9912E7BD0B6006D9D61 /* TinyPay Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F24CF9902E7BD0B6006D9D61 /* TinyPay Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F24CF9D42E7BD303006D9D61 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = F24CF9D32E7BD303006D9D61 /* QRCode */; };
 		F24CF9D62E7BD303006D9D61 /* QRCodeStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F24CF9D52E7BD303006D9D61 /* QRCodeStatic */; };
@@ -73,9 +74,22 @@
 		F24CF9A92E7BD0B7006D9D61 /* TinyPay Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TinyPay Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F297183E2EE133EB00ABBBA5 /* Exceptions for "TinyPay" folder in "TinyPay" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F24CF96C2E7BD0B4006D9D61 /* TinyPay */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F24CF96F2E7BD0B4006D9D61 /* TinyPay */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F297183E2EE133EB00ABBBA5 /* Exceptions for "TinyPay" folder in "TinyPay" target */,
+			);
 			path = TinyPay;
 			sourceTree = "<group>";
 		};
@@ -111,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F24386392F190CAE007FD1B1 /* web3.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +217,7 @@
 			);
 			name = TinyPay;
 			packageProductDependencies = (
+				F24386382F190CAE007FD1B1 /* web3.swift */,
 			);
 			productName = TinyPay;
 			productReference = F24CF96D2E7BD0B4006D9D61 /* TinyPay.app */;
@@ -368,6 +384,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F24CF9D22E7BD303006D9D61 /* XCRemoteSwiftPackageReference "qrcode" */,
+				F24386372F190CAE007FD1B1 /* XCRemoteSwiftPackageReference "web3" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F24CF96E2E7BD0B4006D9D61 /* Products */;
@@ -688,8 +705,10 @@
 				DEVELOPMENT_TEAM = UD3269PSCB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinyPay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TinyPay;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -724,8 +743,10 @@
 				DEVELOPMENT_TEAM = UD3269PSCB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TinyPay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TinyPay;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -980,6 +1001,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F24386372F190CAE007FD1B1 /* XCRemoteSwiftPackageReference "web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ArgentLabs/web3.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.1;
+			};
+		};
 		F24CF9D22E7BD303006D9D61 /* XCRemoteSwiftPackageReference "qrcode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dagronf/qrcode.git";
@@ -991,6 +1020,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F24386382F190CAE007FD1B1 /* web3.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F24386372F190CAE007FD1B1 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = web3.swift;
+		};
 		F24CF9D32E7BD303006D9D61 /* QRCode */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F24CF9D22E7BD303006D9D61 /* XCRemoteSwiftPackageReference "qrcode" */;

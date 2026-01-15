@@ -10,16 +10,24 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            QRCodeView()
+            HomeView()
                 .tabItem {
-                    Image(systemName: "qrcode")
-                    Text("Show to Pay")
+                    Label(LocalizedStrings.tabHome, systemImage: "house.fill")
                 }
             
-            SettingsView()
+            EarnView()
                 .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings")
+                    Label(LocalizedStrings.tabEarn, systemImage: "chart.line.uptrend.xyaxis")
+                }
+            
+            ContactView()
+                .tabItem {
+                    Label(LocalizedStrings.tabContact, systemImage: "heart.circle.fill")
+                }
+            
+            MeView()
+                .tabItem {
+                    Label(LocalizedStrings.tabMe, systemImage: "person.fill")
                 }
         }
     }

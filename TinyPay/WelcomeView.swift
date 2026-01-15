@@ -13,47 +13,49 @@ struct WelcomeView: View {
     @AppStorage("payer_addr") private var payerAddr: String = ""
     @Binding var showWelcome: Bool
     @State private var currentPage = 0
-    @State private var tempPayerAddr: String = ""
-    @State private var tempOTPRoot: String = ""
-    @State private var isCalculating = false
-    @State private var calculationDone = false
-    @State private var hashDict: [Int: String] = [:]
+    // Wallet Setup State
+    @State private var importPrivateKey: String = ""
+    @State private var generatedMnemonic: String = "" // For future use if needed, currently just PK
+    @State private var generatedPrivateKey: String = ""
+    @State private var generatedAddress: String = ""
+    @State private var isImporting: Bool = false
+    @State private var showWalletCreationSuccess: Bool = false
+    
     @FocusState private var isAnyFieldFocused: Bool
     
     let pages = [
         WelcomePage(
             title: "Welcome to TinyPay",
-            subtitle: "Secure Payment App with OTP Technology",
+            subtitle: "Secure Offline Payment Wallet",
             icon: "creditcard.circle.fill",
-            description: "TinyPay helps users generate OTP for offline payments based on custom OTP-ROOT and converts them into QR codes."
+            description: "TinyPay allows you to make secure payments even without an internet connection."
         ),
         WelcomePage(
-            title: "Setup Payment Address",
-            subtitle: "Step 1: Configure Your Payment Address",
-            icon: "location.circle.fill",
-            description: "Enter your payment address below. This is the information others need when making charging from you. You can modify this address later in the Settings page.",
-            needsInput: true,
-            inputType: .paymentAddress
+            title: "Offline Contract",
+            subtitle: "Security via Smart Contract",
+            icon: "lock.shield.fill",
+            description: "We deploy a Vault smart contract for you. You can deposit funds into the contract and use our OTP technology to spend them offline securely. No internet required for payment!",
+            needsInput: false
         ),
         WelcomePage(
-            title: "Generate OTP Chain",
-            subtitle: "Step 2: Create Security Key Chain",
-            icon: "key.fill",
-            description: "Enter your OTP root key below. When you click Next, the system will automatically generate 1000 consecutive secure hash values to ensure each payment is unique.",
+            title: "Setup Wallet",
+            subtitle: "Create or Import Account",
+            icon: "wallet.pass.fill",
+            description: "Choose how you want to set up your wallet.",
             needsInput: true,
-            inputType: .otpRoot
+            inputType: .walletSetup
         ),
         WelcomePage(
             title: "Generate Payment Code",
-            subtitle: "Step 3: Display QR Code for Payment",
+            subtitle: "Display QR Code for Payment",
             icon: "qrcode",
-            description: "Display your QR code on the main page for others to scan and make payments. Remember to refresh for a new security code after each use."
+            description: "Display your QR code on the main page for others to scan. You can set up your OTP secure key later in settings."
         ),
         WelcomePage(
             title: "Apple Watch Sync",
-            subtitle: "Secure Payment Anytime, Anywhere",
+            subtitle: "Pay from your Wrist",
             icon: "applewatch",
-            description: "Data automatically syncs to Apple Watch, allowing you to quickly display payment QR codes in any situation."
+            description: "Sync your wallet to Apple Watch for quick access to payment codes."
         )
     ]
     
@@ -76,10 +78,11 @@ struct WelcomeView: View {
                 ForEach(0..<pages.count, id: \.self) { index in
                     WelcomePageView(
                         page: pages[index], 
-                        tempPayerAddr: $tempPayerAddr,
-                        tempOTPRoot: $tempOTPRoot,
-                        isCalculating: isCalculating,
-                        calculationDone: calculationDone,
+                        importPrivateKey: $importPrivateKey,
+                        generatedPrivateKey: $generatedPrivateKey,
+                        generatedAddress: $generatedAddress,
+                        isImporting: $isImporting,
+                        showWalletCreationSuccess: $showWalletCreationSuccess,
                         currentPageIndex: index,
                         isAnyFieldFocused: _isAnyFieldFocused
                     )
@@ -103,12 +106,14 @@ struct WelcomeView: View {
                 
                 if currentPage < pages.count - 1 {
                     Button("Next") {
-                        // Hide keyboard when moving to next page
+                        // Hide keyboard
                         isAnyFieldFocused = false
                         
-                        // If we're on the OTP root page (page 2), start calculation
-                        if currentPage == 2 && !tempOTPRoot.isEmpty {
-                            startCalculation()
+                        // Validation for Wallet Page (Page 2)
+                        if currentPage == 2 {
+                            if !validateWalletSetup() {
+                                return // Alert handled in UI or simple block
+                            }
                         }
                         
                         withAnimation(.easeInOut(duration: 0.3)) {
@@ -116,17 +121,11 @@ struct WelcomeView: View {
                         }
                     }
                     .buttonStyle(.borderedProminent)
+                    // Disable next if on wallet page and no wallet set
+                    .disabled(currentPage == 2 && generatedAddress.isEmpty && importPrivateKey.isEmpty)
                 } else {
                     Button("Get Started") {
-                        // Save the temporary data to permanent storage
-                        if !tempPayerAddr.isEmpty {
-                            payerAddr = tempPayerAddr
-                        }
-                        if !tempOTPRoot.isEmpty {
-                            UserDefaults.standard.set(tempOTPRoot, forKey: "root")
-                        }
-                        hasSeenWelcome = true
-                        showWelcome = false
+                        completeSetup()
                     }
                     .buttonStyle(.borderedProminent)
                 }
@@ -137,64 +136,32 @@ struct WelcomeView: View {
         .background(Color(.systemBackground))
     }
     
-    private func startCalculation() {
-        isCalculating = true
-        calculationDone = false
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            let dict = self.calculateHashes(root: self.tempOTPRoot)
-            
-            DispatchQueue.main.async {
-                self.hashDict = dict
-                self.saveHashDict(dict)
-                self.isCalculating = false
-                self.calculationDone = true
-                
-                // Save the OTP root to permanent storage
-                UserDefaults.standard.set(self.tempOTPRoot, forKey: "root")
-                
-                // Set unused index
-                UserDefaults.standard.set(998, forKey: "unusedIndex")
-                
-                // Sync data to watch
-                WatchConnectivityManager.shared.sendDataToWatch(hashDict: dict, unusedIndex: 998, payerAddr: self.payerAddr)
-                print("Hash data calculated and sent to watch from WelcomeView")
-                
-                // Notify other views that data has been updated
-                NotificationCenter.default.post(name: .init("HashDataUpdated"), object: nil)
-            }
+    private func validateWalletSetup() -> Bool {
+        // logic to save wallet if valid
+        if !importPrivateKey.isEmpty && generatedAddress.isEmpty {
+            // User entered a private key manually
+            WalletManager.shared.saveWallet(privateKey: importPrivateKey)
+            payerAddr = WalletManager.shared.currentAddress
+            return true
+        } else if !generatedPrivateKey.isEmpty {
+            // User generated a wallet
+            WalletManager.shared.saveWallet(privateKey: generatedPrivateKey)
+            payerAddr = WalletManager.shared.currentAddress
+            return true
         }
+        return false
     }
     
-    private func calculateHashes(root: String) -> [Int: String] {
-        var dict: [Int: String] = [:]
-        var currentString = root
-        
-        print("Calculating hash chain from WelcomeView, root: \(root)")
-        
-        for i in 0..<1000 {
-            let data = Data(currentString.utf8)
-            let hash = SHA256.hash(data: data)
-            let hashString = hash.compactMap { String(format: "%02x", $0) }.joined()
-            
-            dict[i] = hashString
-            currentString = hashString
-        }
-        
-        print("Calculation complete! Tail (index 999): \(dict[999] ?? "Not found")")
-        return dict
-    }
-    
-    private func saveHashDict(_ dict: [Int: String]) {
-        let stringKeyDict = Dictionary(uniqueKeysWithValues: dict.map { (String($0.key), $0.value) })
-        let data = try? JSONSerialization.data(withJSONObject: stringKeyDict, options: [])
-        UserDefaults.standard.set(data, forKey: "indexHashMap")
+    private func completeSetup() {
+        // Final save just in case
+        _ = validateWalletSetup() 
+        hasSeenWelcome = true
+        showWelcome = false
     }
 }
 
 enum WelcomeInputType {
-    case paymentAddress
-    case otpRoot
+    case walletSetup
 }
 
 struct WelcomePage {
@@ -217,10 +184,12 @@ struct WelcomePage {
 
 struct WelcomePageView: View {
     let page: WelcomePage
-    @Binding var tempPayerAddr: String
-    @Binding var tempOTPRoot: String
-    let isCalculating: Bool
-    let calculationDone: Bool
+    @Binding var importPrivateKey: String
+    @Binding var generatedPrivateKey: String
+    @Binding var generatedAddress: String
+    @Binding var isImporting: Bool
+    @Binding var showWalletCreationSuccess: Bool
+    
     let currentPageIndex: Int
     @FocusState var isAnyFieldFocused: Bool
     
@@ -250,27 +219,102 @@ struct WelcomePageView: View {
                     .padding(.horizontal, 30)
                     .padding(.top, 10)
                 
-                // Add input field based on input type
-                if page.needsInput {
-                    if page.inputType == .paymentAddress {
-                        TextField("Enter your payment address", text: $tempPayerAddr)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .focused($isAnyFieldFocused)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .keyboardType(.asciiCapable)
-                            .padding(.horizontal, 30)
-                            .padding(.top, 20)
-                    } else if page.inputType == .otpRoot {
-                        TextField("Enter your OTP root key", text: $tempOTPRoot)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .focused($isAnyFieldFocused)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                            .keyboardType(.asciiCapable)
-                            .padding(.horizontal, 30)
-                            .padding(.top, 20)
+                // Wallet Setup UI
+                if page.inputType == .walletSetup {
+                    VStack(spacing: 20) {
+                        if generatedAddress.isEmpty && !isImporting {
+                            // Initial Choice
+                            Button(action: {
+                                let wallet = WalletManager.shared.generateWallet()
+                                generatedPrivateKey = wallet.privateKey
+                                generatedAddress = wallet.address
+                                showWalletCreationSuccess = true
+                            }) {
+                                Label("Create New Account", systemImage: "plus.circle.fill")
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                            
+                            Button(action: {
+                                withAnimation {
+                                    isImporting = true
+                                }
+                            }) {
+                                Label("I have a Private Key", systemImage: "key.fill")
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color.gray.opacity(0.1))
+                                    .foregroundColor(.primary)
+                                    .cornerRadius(10)
+                            }
+                        } else if showWalletCreationSuccess {
+                            // Generated Success View
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("New Account Created!")
+                                    .font(.headline)
+                                    .foregroundColor(.green)
+                                
+                                Text("Address:")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                Text(generatedAddress)
+                                    .font(.system(.caption, design: .monospaced))
+                                    .padding(8)
+                                    .background(Color.gray.opacity(0.1))
+                                    .cornerRadius(8)
+                                
+                                Text("Private Key (SAVE THIS!):")
+                                    .font(.caption)
+                                    .foregroundColor(.red)
+                                Text(generatedPrivateKey)
+                                    .font(.system(.caption, design: .monospaced))
+                                    .padding(8)
+                                    .background(Color.red.opacity(0.1))
+                                    .cornerRadius(8)
+                                    .onTapGesture {
+                                        UIPasteboard.general.string = generatedPrivateKey
+                                    }
+                                
+                                Button("Reset / Cancel") {
+                                    generatedAddress = ""
+                                    generatedPrivateKey = ""
+                                    showWalletCreationSuccess = false
+                                }
+                                .font(.caption)
+                                .foregroundColor(.red)
+                                .padding(.top, 5)
+                            }
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(12)
+                            .shadow(radius: 2)
+                        } else if isImporting {
+                            // Import View
+                            VStack(alignment: .leading) {
+                                Text("Enter Private Key")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                SecureField("0x...", text: $importPrivateKey)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .focused($isAnyFieldFocused)
+                                
+                                Button("Cancel") {
+                                    withAnimation {
+                                        isImporting = false
+                                        importPrivateKey = ""
+                                    }
+                                }
+                                .font(.caption)
+                                .foregroundColor(.red)
+                                .padding(.top)
+                            }
+                            .padding()
+                        }
                     }
+                    .padding(.horizontal, 30)
                 }
             }
             
